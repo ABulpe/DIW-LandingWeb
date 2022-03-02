@@ -1,0 +1,15 @@
+@mixin background($imgpath,$position:0 0,$repeat: repeat) {
+  background: {
+    image: url($imgpath);
+    position: $position;
+    repeat: $repeat;
+  }
+}
+
+@mixin flex($flex-direction: row, $flex-wrap: wrap, $justify-content: center, $align-items: center) {
+  display: flex;
+  flex-direction: $flex-direction;
+  flex-wrap: $flex-wrap;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}

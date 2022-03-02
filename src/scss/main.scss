@@ -1,0 +1,251 @@
+@use "_font.scss";
+@use "sass:math";
+@use "mixins";
+@use "_colors";
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+%header{
+  background-color: colors.$negro;
+  @include mixins.flex(row,nowrap,space-between,center);
+  height: 12vh;
+  width: 100%;
+  padding-left: 3%;
+  padding-right: 3%;
+
+}
+
+header{
+  @extend %header;
+
+  .logo{
+    height: 100%;
+  }
+
+  nav{
+    width: 60%;
+    height: 100%;
+    margin-right: 100px;
+  }
+  ul{
+    @include mixins.flex(row,nowrap,space-between,center);
+    list-style: none;
+    height: 100%;
+  }
+  .enlace{
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-left: 25%;
+    display: flex;
+    justify-content: center;
+    font-family: "Outrun Future",sans-serif;
+    color: colors.$negro;
+    text-shadow:
+            0 0 7px colors.$blanco,
+            0 0 10px colors.$blanco,
+            0 0 21px colors.$blanco,
+            0 0 42px colors.$rojo,
+            0 0 82px colors.$rojo,
+            0 0 92px colors.$rojo,
+            0 0 102px colors.$rojo,
+            0 0 151px colors.$rojo;
+  }
+
+}
+main{
+  min-height: 100vh - 12vh * 2;
+  overflow: hidden;
+  background-color: #151515;
+  .section3{
+    @include mixins.flex(row,nowrap,center,center);
+    margin-top: 60px;
+    margin-bottom: 20px;
+  }
+  .section1{
+    @include mixins.flex(column,nowrap,center,center);
+    margin-top: 65px;
+  }
+  .section2{
+    @include mixins.flex(row,nowrap,center,center);
+  }
+  section{
+    display: none;
+    width: 100%;
+    height: 100%;
+   .video{
+     @include mixins.background("../static/img/fondo.png",repeat);
+     width: 1000px;
+     height: 500px;
+     position: relative;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+    .audio{
+      margin-top: 10px;
+    }
+    .carrusel{
+      width: 50%;
+      max-width: 100%;
+      //background-color: colors.$blue;
+      //border-radius: 0.08em;
+      overflow: hidden;
+
+      .imagenes {
+        @include mixins.flex(row, nowrap, center, center);
+        width: 300%;
+        transform: translateX(0%);
+        transition: all 0.5s ease;
+
+
+        img {
+          width: math.div(100%, 3);
+          //min-height: 10vh;
+          height: math.div(100%, 3);
+          //object-fit: cover;
+
+        }
+
+      }
+
+      .puntos {
+        @include mixins.flex(row, nowrap, center, center);
+        width: 100%;
+        padding: 0.4em;
+        margin-top: 0.5em;
+
+        .punto {
+          width: 1em;
+          height: 1em;
+          margin: 1em 1em 0 1em;
+          border-radius: 50%;
+          box-shadow: 0 0 0.5em 0.05em #ff0000;
+          cursor: pointer;
+        }
+
+        .activo {
+          background-color: #ff0000;
+        }
+
+      }
+
+    }
+    .acordeon{
+        width: 90%;
+        max-width: 120em;
+      .subbloque{
+        margin: 0 0 1em;
+        padding: 1em;
+        @include mixins.flex(column,wrap,center,center)
+      }
+      .h2{
+        font-family: "Outrun Future";
+        cursor: pointer;
+        width: 8em;
+        margin: 0 0 1em;
+        padding: 1em;
+        color: colors.$negro;
+        text-shadow:
+                0 0 7px white,
+                0 0 10px white,
+                0 0 21px white,
+                0 0 42px red,
+                0 0 82px red,
+                0 0 92px red;
+
+
+      }
+      .contenido{
+        height: 0;
+        margin: 15px;
+        padding: 0em;
+        overflow: hidden;
+        transition: all .5s ease;
+        @include mixins.flex(column,nowrap,center,center);
+      }
+      .activo{
+        .contenido{
+          height: 19em;
+          width: 50%;
+          padding: 20px;
+          background-color: colors.$gris;
+          color: colors.$letra_contenido;
+          font-weight: bold;
+          font-size: xx-large ;
+          border-radius: 20px;
+          @include mixins.flex(column,nowrap,center,center);
+          figure{
+            img{
+              width: 100%;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+}
+  }
+  .activo{
+    display: block;
+  }
+
+
+
+
+footer{
+  background-color: colors.$negro;
+  display: flex;
+  height: 12vh;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding-left: 3%;
+  padding-right: 3%;
+  p{
+    color: colors.$blanco;
+    text-shadow:
+            0 0 7px colors.$blanco,
+            0 0 10px colors.$blanco,
+            0 0 21px colors.$blanco,
+            0 0 42px colors.$rojo,
+            0 0 82px colors.$rojo,
+            0 0 92px colors.$rojo,
+            0 0 102px colors.$rojo,
+            0 0 151px colors.$rojo;
+  }
+  ul{
+    list-style: none;
+    margin-right: 50px;
+  }
+  a{
+    text-decoration: none;
+    color: colors.$blanco;
+    text-shadow:
+            0 0 7px colors.$blanco,
+            0 0 10px colors.$blanco,
+            0 0 21px colors.$blanco,
+            0 0 42px colors.$rojo,
+            0 0 82px colors.$rojo,
+            0 0 92px colors.$rojo,
+            0 0 102px colors.$rojo,
+            0 0 151px colors.$rojo;
+  }
+}
+
+@media(max-width: 720px){
+  header{
+    ul{
+      @include mixins.flex(column,nowrap,space-around,flex-end);
+     .enlace{
+    font-size: 0.9rem;;
+     }
+    }
+  }
+
+
+
+}
